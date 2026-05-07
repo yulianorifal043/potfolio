@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifal Budi Yuliano - Professional Portfolio</title>
+    
+    <!-- Google Fonts: Outfit for modern geometric look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC', 
+                            dark: '#0F172A',
+                            accent1: '#0284C7', 
+                            accent2: '#0D9488', 
+                            accent3: '#2563EB', 
+                            accent4: '#0891B2', 
+                        }
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'fade-up': 'fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
+        
+        ::selection {
+            background-color: #0D9488;
+            color: white;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-300 { animation-delay: 0.3s; }
+        
+        html { scroll-behavior: smooth; }
+
+        /* Custom Scrollbar for Modal */
+        #modalContentWrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+        #modalContentWrapper::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+            border-radius: 10px;
+        }
+        #modalContentWrapper::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 10px;
+        }
+        #modalContentWrapper::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent2 selection:text-white relative">
+
+    <!-- Ambient Background Color Blobs -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none opacity-30">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-accent1/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-brand-accent2/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-brand-accent4/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Floating Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out py-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div id="nav-inner" class="flex items-center justify-between transition-all duration-500">
+                <span class="text-2xl font-black tracking-tighter text-brand-dark">RY<span class="text-brand-accent1">.</span></span>
+                <ul class="hidden md:flex items-center gap-10 text-sm font-semibold text-gray-600">
+                    <li onclick="document.getElementById('works').scrollIntoView()" class="hover:text-brand-accent2 cursor-pointer transition-colors">Portofolio</li>
+                    <li onclick="document.getElementById('contact').scrollIntoView()" class="hover:text-brand-accent2 cursor-pointer transition-colors">Kontak</li>
+                </ul>
+                <button onclick="document.getElementById('contact').scrollIntoView()" class="bg-brand-dark text-white text-sm font-semibold px-7 py-3 rounded-full hover:bg-brand-accent2 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 shadow-lg shadow-brand-dark/20">
+                    Mari Diskusi <i class="ph ph-arrow-right text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 md:pt-48 pb-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between min-h-[95vh] relative gap-12">
+            <!-- Text Content -->
+            <div class="lg:w-3/5 animate-fade-up opacity-0 delay-100 z-10">
+                <div class="inline-flex items-center gap-3 bg-white/80 backdrop-blur-md border border-gray-200 px-4 py-2 rounded-full mb-8 shadow-sm">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent3 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-accent3"></span>
+                    </span>
+                    <p class="text-xs font-bold tracking-widest text-gray-600 uppercase">
+                        Siap Bekerja & Berkolaborasi
+                    </p>
+                </div>
+                
+                <h1 class="text-[4rem] md:text-[6.5rem] lg:text-[7.5rem] font-black tracking-tighter leading-[0.85] mb-8 uppercase">
+                    Desainer <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent2 via-brand-accent1 to-brand-accent3">Grafis.</span>
+                </h1>
+                
+                <div class="max-w-xl text-lg md:text-xl text-gray-700 font-medium leading-relaxed mb-8">
+                    <p class="mb-3 text-brand-dark font-bold">Menerjemahkan informasi kompleks menjadi komunikasi visual yang estetis, fungsional, dan mudah dipahami audiens.</p>
+                    <p class="text-base text-gray-500 font-normal leading-relaxed">Berpengalaman di bidang desain grafis sejak 2019 dengan 3 tahun pengalaman profesional. Menguasai ekosistem Adobe secara penuh, ditambah dengan pemahaman logika pengembangan web (Laravel) sebagai nilai tambah untuk mendukung ekosistem digital instansi Anda.</p>
+                </div>
+
+                <div onclick="document.getElementById('works').scrollIntoView()" class="flex items-center gap-4 group cursor-pointer w-fit">
+                    <div class="w-14 h-14 rounded-full border-2 border-gray-300 flex items-center justify-center transition-all duration-300 group-hover:border-brand-accent2 group-hover:bg-brand-accent2 group-hover:text-white text-gray-400">
+                        <i class="ph ph-arrow-down text-2xl"></i>
+                    </div>
+                    <span class="text-sm font-bold tracking-widest uppercase text-gray-500 group-hover:text-brand-accent2 transition-colors">Lihat Karya Saya</span>
+                </div>
+            </div>
+
+            <!-- Profile Photo -->
+            <div class="lg:w-2/5 flex justify-center lg:justify-end animate-fade-up opacity-0 delay-300 relative z-10 mt-12 lg:mt-0">
+                <div class="absolute inset-0 bg-brand-accent2/10 rounded-[2.5rem] transform rotate-6 scale-105 transition-transform duration-500"></div>
+                <div class="relative w-72 h-[24rem] md:w-80 md:h-[28rem] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white bg-gray-100 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <!-- GANTI FOTO DI SINI. onerror="this.onerror=null;..." mencegah bug reload terus-menerus -->
+                    <img src="img/foto-profil.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x800/0D9488/ffffff?text=Foto+Mas+Rifal'" alt="Rifal Budi Yuliano" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Infinite Marquee -->
+        <section class="py-16 border-y border-gray-200/50 overflow-hidden bg-white/40 backdrop-blur-sm">
+            <div class="whitespace-nowrap flex animate-marquee">
+                <span class="text-5xl md:text-7xl font-black tracking-tighter text-transparent w-webkit-text-stroke w-webkit-text-stroke-gray mx-8" style="-webkit-text-stroke: 1px rgba(15, 23, 42, 0.2);">
+                    PHOTOSHOP <span class="text-brand-accent1/50">•</span> ILLUSTRATOR <span class="text-brand-accent1/50">•</span> INDESIGN <span class="text-brand-accent1/50">•</span> PREMIERE PRO <span class="text-brand-accent1/50">•</span> COREL DRAW <span class="text-brand-accent1/50">•</span> (BONUS SKILL: LARAVEL <span class="text-brand-accent1/50">•</span> CODEIGNITER) <span class="text-brand-accent1/50">•</span>
+                </span>
+                <span class="text-5xl md:text-7xl font-black tracking-tighter text-transparent w-webkit-text-stroke w-webkit-text-stroke-gray mx-8" style="-webkit-text-stroke: 1px rgba(15, 23, 42, 0.2);">
+                    PHOTOSHOP <span class="text-brand-accent1/50">•</span> ILLUSTRATOR <span class="text-brand-accent1/50">•</span> INDESIGN <span class="text-brand-accent1/50">•</span> PREMIERE PRO <span class="text-brand-accent1/50">•</span> COREL DRAW <span class="text-brand-accent1/50">•</span> (BONUS SKILL: LARAVEL <span class="text-brand-accent1/50">•</span> CODEIGNITER) <span class="text-brand-accent1/50">•</span>
+                </span>
+            </div>
+        </section>
+
+        <!-- Selected Works - Bento Grid dengan Dukungan Gambar -->
+        <section id="works" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter leading-none">Selected<br/>Works <span class="text-brand-accent2 text-3xl md:text-5xl align-top">(3)</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Project 1 - Graphic Design Archive -->
+                <div onclick="openModal('gallery')" class="md:col-span-3 group cursor-pointer flex flex-col gap-4">
+                    <div class="relative overflow-hidden rounded-[2.5rem] bg-brand-dark aspect-[21/9] md:aspect-[3/1] transition-all duration-700 hover:shadow-2xl hover:shadow-brand-dark/40 flex items-center">
+                        <!-- Background Image for Graphic Design Cover -->
+                        <div class="absolute inset-0 z-0">
+                            <img src="img/cover-grafis.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop'" alt="Graphic Design Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <!-- Dark Gradient Overlay agar teks terbaca -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent"></div>
+                        </div>
+
+                        <div class="absolute top-8 left-8 z-20">
+                            <span class="bg-white/20 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Graphic Design</span>
+                        </div>
+                        <div class="w-full text-left pl-8 md:pl-16 z-20">
+                            <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white/90 group-hover:text-white transition-colors duration-500">VISUAL<br/>ARCHIVE.</h3>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start px-2">
+                        <div>
+                            <h3 class="text-2xl font-bold tracking-tight text-gray-900 group-hover:text-brand-dark transition-colors">Koleksi Desain Visual Profesional</h3>
+                            <p class="text-gray-500 font-medium max-w-2xl text-sm mt-1">Klik untuk melihat kumpulan karya desain grafis yang pernah saya kerjakan. Mencakup berbagai kebutuhan visual mulai dari layouting, hingga materi promosi instansi.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gray-200 group-hover:bg-brand-dark text-gray-600 group-hover:text-white flex items-center justify-center transition-all duration-300 transform group-hover:rotate-45 flex-shrink-0">
+                            <i class="ph ph-arrow-up-right text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Lipsus 15 -->
+                <div onclick="openModal('video')" class="md:col-span-1 group cursor-pointer flex flex-col gap-4 mt-4">
+                    <div class="relative overflow-hidden rounded-[2.5rem] bg-brand-dark aspect-[4/3] md:aspect-square transition-all duration-700 hover:shadow-2xl hover:shadow-blue-500/40">
+                        <!-- Background Image for Video Cover -->
+                        <div class="absolute inset-0 z-0">
+                            <img src="img/cover-lipsus.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000&auto=format&fit=crop'" alt="Video Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <!-- Dark Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/30 to-transparent"></div>
+                        </div>
+
+                        <div class="absolute top-8 right-8 z-20">
+                            <span class="bg-black/40 backdrop-blur-md text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Video & Illust.</span>
+                        </div>
+                        <div class="absolute bottom-8 left-8 z-20">
+                            <h3 class="text-3xl font-black tracking-tighter text-white mb-1 transform group-hover:-translate-y-2 transition-transform duration-500">Lipsus 15</h3>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                            <i class="ph ph-play-circle text-6xl text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300"></i>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start px-2">
+                        <div>
+                            <h3 class="text-xl font-bold tracking-tight text-gray-900 group-hover:text-brand-accent1 transition-colors">Ketoprak Pantang Mati</h3>
+                            <p class="text-gray-500 font-medium text-sm mt-1">Peran: Video Editor & Illustrator. Klik untuk menonton.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Debowae (Added Value) -->
+                <div onclick="window.open('https://debowae.com', '_blank')" class="md:col-span-2 group cursor-pointer flex flex-col gap-4 mt-4">
+                    <div class="relative overflow-hidden rounded-[2.5rem] bg-brand-dark aspect-[4/3] md:aspect-[2/1] transition-all duration-700 hover:shadow-2xl hover:shadow-brand-accent2/40">
+                        <!-- Background Image for Web Cover -->
+                        <div class="absolute inset-0 z-0">
+                            <img src="img/cover-debowae.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop'" alt="Debowae Web" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <div class="absolute inset-0 bg-gradient-to-r from-brand-accent2/90 to-brand-dark/80"></div>
+                        </div>
+                        
+                        <div class="absolute top-8 left-8 z-20 flex gap-2">
+                            <span class="bg-white/20 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Added Value: Web App</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center p-12 z-20">
+                           <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors duration-500 transform group-hover:scale-105">DEBOWAE</h3>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start px-2">
+                        <div>
+                            <h3 class="text-2xl font-bold tracking-tight text-gray-900 group-hover:text-brand-accent2 transition-colors">Sistem Informasi Desa Debowae</h3>
+                            <p class="text-gray-500 font-medium text-sm mt-1 max-w-md">Keahlian Tambahan: Web Laravel. Klik mengunjungi web asli.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gray-200 group-hover:bg-brand-accent2 text-gray-600 group-hover:text-white flex items-center justify-center transition-all duration-300 transform group-hover:rotate-45 flex-shrink-0">
+                            <i class="ph ph-link text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Massive Vibrant Footer -->
+    <footer id="contact" class="bg-brand-dark text-white rounded-t-[3rem] mt-12 overflow-hidden relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent2/30 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="pt-32 pb-12 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 border-b border-white/10 pb-16">
+                <h2 class="text-6xl md:text-[8rem] lg:text-[9rem] font-black tracking-tighter leading-[0.85] mb-8 md:mb-0 hover:text-brand-accent1 transition-colors duration-500 cursor-pointer">
+                    HUBUNGI<br />SAYA.
+                </h2>
+                <div class="flex flex-col gap-6 text-lg font-medium text-gray-400">
+                    <a href="mailto:yulianorifal0307@gmail.com" class="hover:text-white transition-colors flex items-center gap-3 group border border-white/10 bg-white/5 rounded-full px-6 py-3 backdrop-blur-sm hover:bg-brand-accent2 hover:border-brand-accent2">
+                        yulianorifal0307@gmail.com 
+                        <div class="bg-white text-brand-dark rounded-full p-1 group-hover:rotate-45 transition-transform">
+                            <i class="ph ph-arrow-up-right"></i>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/62895328588407" target="_blank" class="hover:text-white transition-colors flex items-center justify-between gap-3 group px-6 py-3">
+                        WhatsApp: 0895-3285-88407 <i class="ph ph-arrow-right text-xl group-hover:translate-x-2 transition-transform text-brand-accent1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-medium text-gray-500">
+                <p>© 2026 Rifal Budi Yuliano. Graphic Designer & Web Developer.</p>
+                <div class="flex items-center gap-8 text-2xl">
+                    <a href="https://instagram.com/rifalyuliano043" target="_blank" class="hover:text-brand-accent1 transition-transform hover:-translate-y-1"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="mailto:yulianorifal0307@gmail.com" class="hover:text-brand-accent4 transition-transform hover:-translate-y-1"><i class="ph ph-envelope-simple"></i></a>
+                    <a href="https://wa.me/62895328588407" target="_blank" class="hover:text-brand-accent3 transition-transform hover:-translate-y-1"><i class="ph ph-whatsapp-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal / Popup Container untuk Galeri & Video -->
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6">
+        <div class="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm transition-opacity cursor-pointer" onclick="closeModal()"></div>
+        
+        <div class="relative bg-white rounded-[2.5rem] w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl z-10 transform scale-95 opacity-0 transition-all duration-300 border border-gray-100" id="modalContentWrapper">
+            <button onclick="closeModal()" class="sticky top-6 float-right mr-6 mt-6 bg-gray-100 hover:bg-gray-200 hover:text-red-500 text-gray-800 w-12 h-12 rounded-full flex items-center justify-center transition-colors z-50">
+                <i class="ph ph-x text-2xl font-bold"></i>
+            </button>
+
+            <div id="modalBody" class="p-8 md:p-12 clear-both">
+                <!-- Konten dimuat via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Viewer Layar Penuh untuk Zoom Gambar -->
+    <div id="imageViewer" class="fixed inset-0 z-[200] hidden flex-col items-center justify-center bg-black/95 backdrop-blur-lg transition-all duration-300 opacity-0" onclick="closeViewer(event)">
+        <!-- Toolbar Atas -->
+        <div class="absolute top-0 left-0 right-0 p-6 flex justify-between items-center z-50 bg-gradient-to-b from-black/60 to-transparent pointer-events-none">
+            <div class="text-white/70 text-sm font-medium px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm pointer-events-auto">
+                <i class="ph ph-info mr-2"></i>Klik gambar untuk Zoom
+            </div>
+            <button onclick="closeViewer(event)" class="text-white hover:text-red-500 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors pointer-events-auto">
+                <i class="ph ph-x text-2xl font-bold"></i>
+            </button>
+        </div>
+        
+        <!-- Area Gambar -->
+        <div class="w-full h-full flex items-center justify-center p-4 sm:p-12 overflow-hidden relative" id="viewerScrollArea">
+            <img id="viewerImage" src="" alt="Zoomed Graphic" class="max-w-full max-h-full object-contain cursor-zoom-in transition-transform duration-300 ease-out" onclick="toggleZoom(event)" data-zoomed="false" style="transform: scale(1);">
+        </div>
+    </div>
+
+    <!-- Interactivity Script -->
+    <script>
+        // Navbar Scroll Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('navbar');
+            const navInner = document.getElementById('nav-inner');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.replace('py-8', 'py-4');
+                    navInner.classList.add('bg-white/70', 'backdrop-blur-md', 'shadow-sm', 'border', 'border-gray-200', 'py-3', 'px-6', 'rounded-full');
+                } else {
+                    nav.classList.replace('py-4', 'py-8');
+                    navInner.classList.remove('bg-white/70', 'backdrop-blur-md', 'shadow-sm', 'border', 'border-gray-200', 'py-3', 'px-6', 'rounded-full');
+                }
+            });
+        });
+
+        // 1. Logika Modal Utama (Membuka Grid Galeri atau Video)
+        function openModal(type) {
+            const modal = document.getElementById('projectModal');
+            const wrapper = document.getElementById('modalContentWrapper');
+            const body = document.getElementById('modalBody');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                wrapper.classList.remove('scale-95', 'opacity-0');
+                wrapper.classList.add('scale-100', 'opacity-100');
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
+
+            if (type === 'gallery') {
+                // Perhatikan: Pada gambar desain, onclick memanggil openImageViewer()
+                body.innerHTML = `
+                    <h3 class="text-4xl md:text-5xl font-black tracking-tight mb-3 text-brand-dark">Koleksi Desain Grafis</h3>
+                    <p class="text-gray-500 text-lg mb-10 border-b border-gray-100 pb-8">Karya visual komunikasi, layouting, dan desain promosi. Klik gambar untuk memperbesar.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Desain 1 -->
+                        <div onclick="openImageViewer(this.querySelector('img').src)" class="rounded-[1.5rem] overflow-hidden bg-gray-100 aspect-[4/5] shadow-sm border border-gray-200 group relative cursor-pointer">
+                            <img src="img/pkm.png" alt="Desain 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1000&auto=format&fit=crop';">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-brand-accent2/30 transition-colors flex items-center justify-center">
+                                <i class="ph ph-magnifying-glass-plus text-white text-5xl opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100 duration-300 drop-shadow-lg"></i>
+                            </div>
+                        </div>
+                        <!-- Desain 2 -->
+                        <div onclick="openImageViewer(this.querySelector('img').src)" class="rounded-[1.5rem] overflow-hidden bg-gray-100 aspect-[4/5] shadow-sm border border-gray-200 group relative cursor-pointer">
+                            <img src="img/mcu.png" alt="Desain 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=1000&auto=format&fit=crop';">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-brand-accent2/30 transition-colors flex items-center justify-center">
+                                <i class="ph ph-magnifying-glass-plus text-white text-5xl opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100 duration-300 drop-shadow-lg"></i>
+                            </div>
+                        </div>
+                        <!-- Desain 3 -->
+                        <div onclick="openImageViewer(this.querySelector('img').src)" class="rounded-[1.5rem] overflow-hidden bg-gray-100 aspect-[4/5] shadow-sm border border-gray-200 group relative cursor-pointer">
+                            <img src="img/igd.png" alt="Desain 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1000&auto=format&fit=crop';">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-brand-accent2/30 transition-colors flex items-center justify-center">
+                                <i class="ph ph-magnifying-glass-plus text-white text-5xl opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100 duration-300 drop-shadow-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'video') {
+    body.innerHTML = `
+        <h3 class="text-4xl md:text-5xl font-black tracking-tight mb-3 text-brand-dark">
+            Lipsus 15: Ketoprak Pantang Mati
+        </h3>
+
+        <p class="text-gray-500 text-lg mb-10 border-b border-gray-100 pb-8">
+            Video liputan khusus. Berperan sebagai Video Editor & Illustrator.
+        </p>
+
+        <div class="relative w-full aspect-video overflow-hidden rounded-[2rem] bg-black shadow-xl border border-gray-200">
+            <iframe
+                class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/waJzMDL4q2Q"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    `;
+}
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            const wrapper = document.getElementById('modalContentWrapper');
+            const body = document.getElementById('modalBody');
+            
+            wrapper.classList.remove('scale-100', 'opacity-100');
+            wrapper.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                body.innerHTML = ''; 
+                document.body.style.overflow = 'auto'; 
+            }, 300);
+        }
+
+        // 2. Logika Lightbox / Viewer Gambar Layar Penuh (Zoom In / Out)
+        function openImageViewer(src) {
+            const viewer = document.getElementById('imageViewer');
+            const img = document.getElementById('viewerImage');
+            
+            img.src = src;
+            img.style.transform = 'scale(1)';
+            img.style.transformOrigin = 'center center';
+            img.dataset.zoomed = 'false';
+            img.classList.replace('cursor-zoom-out', 'cursor-zoom-in');
+            
+            viewer.classList.remove('hidden');
+            viewer.classList.add('flex');
+            
+            // Trigger reflow untuk animasi
+            void viewer.offsetWidth;
+            viewer.classList.remove('opacity-0');
+            viewer.classList.add('opacity-100');
+        }
+
+        function closeViewer(e) {
+            // Cegah penutupan jika yang diklik adalah gambar dan sedang melakukan zoom
+            if (e && e.target.id === 'viewerImage') return;
+            
+            const viewer = document.getElementById('imageViewer');
+            viewer.classList.remove('opacity-100');
+            viewer.classList.add('opacity-0');
+            
+            setTimeout(() => { 
+                viewer.classList.add('hidden'); 
+                viewer.classList.remove('flex'); 
+                document.getElementById('viewerImage').src = '';
+            }, 300);
+        }
+
+        function toggleZoom(e) {
+            e.stopPropagation(); // Cegah event klik tembus ke background yang bisa menutup viewer
+            const img = document.getElementById('viewerImage');
+            const isZoomed = img.dataset.zoomed === 'true';
+            
+            if (isZoomed) {
+                // Zoom Out kembali ke ukuran normal
+                img.style.transform = 'scale(1)';
+                img.style.transformOrigin = 'center center';
+                img.dataset.zoomed = 'false';
+                img.classList.replace('cursor-zoom-out', 'cursor-zoom-in');
+            } else {
+                // Zoom In canggih: memperbesar area tepat di mana kursor mouse mengklik
+                const rect = img.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                img.style.transformOrigin = `${x}% ${y}%`;
+                img.style.transform = 'scale(2.5)'; // Tingkat pembesaran (2.5x)
+                img.dataset.zoomed = 'true';
+                img.classList.replace('cursor-zoom-in', 'cursor-zoom-out');
+            }
+        }
+    </script>
+</body>
+</html>
